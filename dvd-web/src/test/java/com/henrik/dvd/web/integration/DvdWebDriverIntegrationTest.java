@@ -2,6 +2,7 @@ package com.henrik.dvd.web.integration;
 
 import static org.junit.Assert.*;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -17,7 +18,7 @@ public class DvdWebDriverIntegrationTest {
 	@Before
 	public void setUp() 
 	{
-		System.setProperty("webdriver.chrome.driver", "/Users/henrikhahne/Download/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/Users/henrikhahne/Public/chromedriver");
 		driver = new ChromeDriver();
 	}
 	
@@ -26,6 +27,11 @@ public class DvdWebDriverIntegrationTest {
 		driver.get("http://localhost:8090/dvd-web/default.xhtml");
 		WebElement element = driver.findElement(By.id("test"));
 		assertTrue(element.getText().equals("Heisann"));
+	}
+	
+	@After
+	public void tearDown() {
+		driver.quit();
 	}
 
 }
