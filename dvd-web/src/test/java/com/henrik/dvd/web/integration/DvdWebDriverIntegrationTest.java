@@ -18,7 +18,7 @@ public class DvdWebDriverIntegrationTest {
 	@Before
 	public void setUp() 
 	{
-		System.setProperty("webdriver.chrome.driver", "/Users/henrikhahne/Public/chromedriver");
+		System.setProperty("webdriver.chrome.driver", "/Users/Shared/Jenkins/chromedriver");
 		driver = new ChromeDriver();
 	}
 	
