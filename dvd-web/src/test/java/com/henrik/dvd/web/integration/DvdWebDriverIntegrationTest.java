@@ -21,11 +21,6 @@ public class DvdWebDriverIntegrationTest {
 	@Before
 	public void setUp() 
 	{
-//		System.setProperty("webdriver.chrome.driver", "/Users/Shared/Jenkins/chromedriver");
-//		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-//		ChromeOptions options = new ChromeOptions();
-//		options.addArguments("no-sandbox");
-//		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		driver = new FirefoxDriver();
 	}
 	

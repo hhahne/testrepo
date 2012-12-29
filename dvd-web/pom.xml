@@ -8,10 +8,6 @@
 	<name>dvd-web Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 	
-	<properties>
-		<webdriver.chrome>/Users/Shared/Jenkins/chromedriver</webdriver.chrome>
-	</properties>
-	
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -136,9 +132,6 @@
 				<artifactId>maven-failsafe-plugin</artifactId>
 				<version>2.11</version>
 				<configuration>
-					<systemPropertyVariables>
-						<webdriver.chrome.driver>${webdriver.chrome}</webdriver.chrome.driver>
-					</systemPropertyVariables>
 					<includes>
 						<include>**/integration/**/IntegrationTest*.java</include>
 						<include>**/integration/**/*IntegrationTest.java</include>
