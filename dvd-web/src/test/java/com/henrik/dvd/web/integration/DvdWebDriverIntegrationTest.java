@@ -22,10 +22,10 @@ public class DvdWebDriverIntegrationTest {
 	public void setUp() 
 	{
 //		System.setProperty("webdriver.chrome.driver", "/Users/Shared/Jenkins/chromedriver");
-//		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-//		ChromeOptions options = new ChromeOptions();
-//		options.setBinary("/Applications/Google\\ Chrome.app");
-//		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("no-sandbox");
+		capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 		driver = new ChromeDriver();
 	}
 	
