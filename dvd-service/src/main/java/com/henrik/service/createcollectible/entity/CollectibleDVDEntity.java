@@ -1,10 +1,11 @@
-package com.henrik.service.interactor.createcollectible;
+package com.henrik.service.createcollectible.entity;
 
-public class CollectibleDVDEntry extends CollectibleEntity {
+
+public class CollectibleDVDEntity extends CollectibleEntity {
 
 	private int runningLength;
 	
-	public CollectibleDVDEntry(String name, String description) {
+	public CollectibleDVDEntity(String name, String description) {
 		super(name, description);
 	}
 

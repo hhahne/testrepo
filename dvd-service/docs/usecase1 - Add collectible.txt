@@ -1,0 +1,15 @@
+A new collectible is added by interacting with a input boundary defined an interface, in turn implemented by an appropriate interactor on that interface.
+The fields common to all Collectibles are defined in a request model object. Currently supported variables in the request model are: collectibleId, name, description and type. The type currently supports "Book" or "DVD" types of collcetibles.
+
+Transactions look like: 
+AddCollectible <RequestModel>
+
+Alternative 1: 
+If the transactions have an invalid data structure, log an error and no nothing else.
+
+Alternative 2:
+If the transaction tries to add an already existing user, log an error and do nothing else.
+
+
+
+
