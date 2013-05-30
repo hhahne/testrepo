@@ -8,14 +8,17 @@ public class CollectibleDVDEntity extends CollectibleEntity {
 	public CollectibleDVDEntity(String name, String description) {
 		super(name, description);
 	}
+	
+	public CollectibleDVDEntity(String name, String description, int runningLength) 
+	{
+		this(name, description);
+		this.runningLength = runningLength;
+	}
 
 	public int getRunningLength() {
 		return runningLength;
 	}
 
-	public void setRunningLength(int runningLength) {
-		this.runningLength = runningLength;
-	}
 
 	
 	

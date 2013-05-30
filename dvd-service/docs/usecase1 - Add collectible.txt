@@ -8,7 +8,7 @@ Alternative 1:
 If the transactions have an invalid data structure, log an error and no nothing else.
 
 Alternative 2:
-If the transaction tries to add an already existing user, log an error and do nothing else.
+If the transaction tries to add an already existing Collectible, log an error and do nothing else.
 
 
 

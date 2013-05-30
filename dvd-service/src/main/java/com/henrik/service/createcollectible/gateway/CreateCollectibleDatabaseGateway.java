@@ -1,5 +1,7 @@
 package com.henrik.service.createcollectible.gateway;
 
+import java.util.Collection;
+
 import com.henrik.service.createcollectible.entity.CollectibleEntity;
 
 /**
@@ -10,4 +12,5 @@ import com.henrik.service.createcollectible.entity.CollectibleEntity;
  */
 public interface CreateCollectibleDatabaseGateway {
 	public int storeCollectible(CollectibleEntity entity);
+	public Collection<CollectibleEntity> getAllCollectibles();
 }

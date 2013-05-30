@@ -20,8 +20,5 @@ public class CollectibleBookEntity extends CollectibleEntity {
 		return numberOfPages;
 	}
 
-	public void setNumberOfPages(int numberOfPages) {
-		this.numberOfPages = numberOfPages;
-	}
 	
 }

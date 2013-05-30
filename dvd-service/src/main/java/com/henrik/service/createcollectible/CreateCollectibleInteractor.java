@@ -1,5 +1,7 @@
 package com.henrik.service.createcollectible;
 
+import org.springframework.stereotype.Service;
+
 import com.henrik.service.createcollectible.boundary.CreateCollectibleInputBoundary;
 import com.henrik.service.createcollectible.boundary.CreateCollectibleOutputBoundary;
 import com.henrik.service.createcollectible.entity.CollectibleBookEntity;
@@ -9,6 +11,7 @@ import com.henrik.service.createcollectible.gateway.CreateCollectibleDatabaseGat
 import com.henrik.service.createcollectible.model.CreateCollectibleRequestModel;
 import com.henrik.service.createcollectible.model.CreateCollectibleResponseModel;
 
+@Service("CreateCollectibleInteractor")
 public class CreateCollectibleInteractor implements
 		CreateCollectibleInputBoundary {
 	

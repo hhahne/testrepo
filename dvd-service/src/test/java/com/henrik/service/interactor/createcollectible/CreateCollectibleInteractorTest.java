@@ -1,8 +1,10 @@
 package com.henrik.service.interactor.createcollectible;
 
-import static org.mockito.Mockito.*;
-
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Matchers.any;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -43,7 +45,7 @@ public class CreateCollectibleInteractorTest {
 	@Test
 	public void shouldCreateABookCollectible() {
 		CreateCollectibleRequestModel model = new CreateCollectibleRequestModel();
-		CollectibleEntity book = new CollectibleBookEntity("Hunt for Red October", "Book written by Tom Clancy I reckon");
+		CollectibleBookEntity book = new CollectibleBookEntity("Hunt for Red October", "Book written by Tom Clancy I reckon", 450);
 		model.setCollectible(book);
 		createCollectibleInteractor.createCollectible(model);
 		ArgumentCaptor<CreateCollectibleResponseModel> argument = ArgumentCaptor.forClass(CreateCollectibleResponseModel.class);
@@ -56,7 +58,7 @@ public class CreateCollectibleInteractorTest {
 	@Test
 	public void shouldCreateADVDCollectible() {
 		CreateCollectibleRequestModel model = new CreateCollectibleRequestModel();
-		CollectibleEntity dvd = new CollectibleDVDEntity("Hunt for Red October", "Movie version of the Hunt for Red October");
+		CollectibleDVDEntity dvd = new CollectibleDVDEntity("Hunt for Red October", "Movie version of the Hunt for Red October", 150);
 		model.setCollectible(dvd);
 		createCollectibleInteractor.createCollectible(model);
 		ArgumentCaptor<CreateCollectibleResponseModel> argument = ArgumentCaptor.forClass(CreateCollectibleResponseModel.class);

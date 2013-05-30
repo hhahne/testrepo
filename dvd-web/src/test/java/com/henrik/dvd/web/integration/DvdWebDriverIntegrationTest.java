@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Capabilities;
@@ -12,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DvdWebDriverIntegrationTest {
@@ -21,7 +23,8 @@ public class DvdWebDriverIntegrationTest {
 	@Before
 	public void setUp() 
 	{
-		driver = new FirefoxDriver();
+		System.setProperty("webdriver.chrome.driver", "/Users/henrikhahne/Public/chromedriver");
+		driver = new ChromeDriver();
 	}
 	
 	@Test

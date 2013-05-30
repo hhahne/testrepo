@@ -6,6 +6,13 @@
  
   <display-name>dvdWebApp</display-name>
  
+ <context-param>
+ 	<param-name>contextConfigLocation</param-name>
+ 	<param-value>
+ 		WEB-INF/applicationContext.xml
+ 	</param-value>
+ </context-param>
+ 
   <!-- Add Support for Spring -->
   <listener>
 	<listener-class>
@@ -27,7 +34,8 @@
     <param-name>javax.faces.PROJECT_STAGE</param-name>
     <param-value>Development</param-value>
   </context-param>
- 
+  
+
   <!-- Welcome page -->
   <welcome-file-list>
     <welcome-file>default.xhtml</welcome-file>
