@@ -1,5 +1,6 @@
 package com.henrik.service.createcollectible;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.henrik.service.createcollectible.boundary.CreateCollectibleInputBoundary;
@@ -15,22 +16,20 @@ import com.henrik.service.createcollectible.model.CreateCollectibleResponseModel
 public class CreateCollectibleInteractor implements
 		CreateCollectibleInputBoundary {
 	
+	@Autowired
 	private CreateCollectibleDatabaseGateway database;
+	
+	@Autowired
 	private CreateCollectibleOutputBoundary outputBoundary;
 
 	public void createCollectible(CreateCollectibleRequestModel requestModel) {
-		CollectibleEntity collectible = null;
-		if(requestModel.getCollectible() instanceof CollectibleBookEntity) {
-			collectible = new CollectibleBookEntity(requestModel.getCollectible().getName(), requestModel.getCollectible().getDescription());
-			database.storeCollectible(collectible);
-		} else if(requestModel.getCollectible() instanceof CollectibleDVDEntity) {
-			collectible = new CollectibleDVDEntity(requestModel.getCollectible().getName(), requestModel.getCollectible().getDescription());
-			database.storeCollectible(collectible);
-		} else {
-			collectible = CollectibleEntity.NULL_OBJECT;
-		}
 		CreateCollectibleResponseModel response = new CreateCollectibleResponseModel();
-		response.setEntity(collectible);
+		if(requestModel.getCollectible() instanceof CollectibleEntity) {
+			database.storeCollectible(requestModel.getCollectible());
+			response.setEntity(requestModel.getCollectible());
+		} else {
+			response.setEntity(CollectibleEntity.NULL_OBJECT);
+		}
 		outputBoundary.handleCreateCollectibleResult(response);
 	}
 
