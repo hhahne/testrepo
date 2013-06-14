@@ -12,7 +12,7 @@ import com.henrik.service.createcollectible.gateway.CreateCollectibleDatabaseGat
 import com.henrik.service.createcollectible.model.CreateCollectibleRequestModel;
 import com.henrik.service.createcollectible.model.CreateCollectibleResponseModel;
 
-@Service("CreateCollectibleInteractor")
+@Service("createCollectibleInteractor")
 public class CreateCollectibleInteractor implements
 		CreateCollectibleInputBoundary {
 	

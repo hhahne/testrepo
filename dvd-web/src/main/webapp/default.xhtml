@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:body>
 
@@ -9,6 +10,18 @@
 	<br />
  	hei2
  	#{DvdBean.printMessage()}
-    </h:body>
+ 	<h:form>
+		<h:selectOneMenu id="collectibleType"
+			value="#{DvdModel.collectibleType}">
+			<f:selectItem id="item1" itemLabel="Book" itemValue="Book" />
+			<f:selectItem id="item2" itemLabel="DVD" itemValue="Dvd" />
+		</h:selectOneMenu>
+
+		<h:inputText id="name" value="#{DvdModel.name}" />
+		<h:inputText id="description" value="#{DvdModel.description}" />
+		<h:commandButton value="Add collectible" action="#{DvdBean.addEntityToModel()}" />
+
+	</h:form>
+</h:body>
 
 </html>

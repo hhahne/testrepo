@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      >
+
+<h:body>
+
+	<h1>Created Collectibles</h1>
+	<br />
+	<h:dataTable value="#{DvdModel.entities}" var="row">
+		<h:column>
+			<f:facet name="header">ID</f:facet>
+    		#{row.id}
+    		</h:column>
+
+		<h:column>
+			<f:facet name="header">Name</f:facet>
+    				<h:outputText value="#{row.name}" />
+    		</h:column>
+
+		<h:column>
+			<f:facet name="header">Description</f:facet>
+    				<h:outputText value="#{row.description}" />
+    		</h:column>
+	</h:dataTable>
+	<br/>
+	<h:outputText value="Modellen har : #{DvdModel.entities}" />
+	#{DvdModel.entities[0].name}
+</h:body>
+
+</html>

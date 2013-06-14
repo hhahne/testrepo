@@ -16,7 +16,6 @@ public class CreateCollectibleInMemoryDatabaseGateway implements CreateCollectib
 	public int storeCollectible(CollectibleEntity entity) {
 		entity.setId(databaseId++);
 		entities.add(entity);
-		databaseId++;
 		return databaseId;
 	}
 

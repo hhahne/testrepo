@@ -27,7 +27,7 @@ import com.henrik.service.createcollectible.model.CreateCollectibleResponseModel
  * @author Henrik Hahne
  *
  */
-@Component
+@Component("createCollectibleOutputBoundary")
 public class CreateCollectibleOutputBoundaryImpl implements CreateCollectibleOutputBoundary {
 
 	//@Autowired
