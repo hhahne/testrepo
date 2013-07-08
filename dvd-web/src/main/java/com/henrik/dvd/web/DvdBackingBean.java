@@ -38,7 +38,7 @@ public class DvdBackingBean{
 		CollectibleEntity entity = null;
 		if(CollectibleType.BOOK.getCode().equals(dvdModel.getCollectibleType())) {
 			entity = new CollectibleBookEntity(dvdModel.getName(), dvdModel.getDescription());
-		} else if(CollectibleType.BOOK.getCode().equals(dvdModel.getCollectibleType())) {
+		} else if(CollectibleType.DVD.getCode().equals(dvdModel.getCollectibleType())) {
 			entity = new CollectibleDVDEntity(dvdModel.getName(), dvdModel.getDescription());
 		}
 		return entity;
