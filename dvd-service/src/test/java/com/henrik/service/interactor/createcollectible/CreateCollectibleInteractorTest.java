@@ -21,6 +21,8 @@ import com.henrik.service.createcollectible.entity.CollectibleBookEntity;
 import com.henrik.service.createcollectible.entity.CollectibleDVDEntity;
 import com.henrik.service.createcollectible.entity.CollectibleEntity;
 import com.henrik.service.createcollectible.gateway.CreateCollectibleDatabaseGateway;
+import com.henrik.service.createcollectible.model.CollectibleBookRequest;
+import com.henrik.service.createcollectible.model.CollectibleDVDRequest;
 import com.henrik.service.createcollectible.model.CreateCollectibleRequestModel;
 import com.henrik.service.createcollectible.model.CreateCollectibleResponseModel;
 
@@ -30,10 +32,10 @@ public class CreateCollectibleInteractorTest {
 	private CreateCollectibleInputBoundary createCollectibleInteractor;
 	
 	@Mock
-	CreateCollectibleOutputBoundary outputBoundaryMock;
+	private CreateCollectibleOutputBoundary outputBoundaryMock;
 	
 	@Mock
-	CreateCollectibleDatabaseGateway databaseMock;
+	private CreateCollectibleDatabaseGateway databaseMock;
 	
 	@Before()
 	public void setUp() {
@@ -45,9 +47,11 @@ public class CreateCollectibleInteractorTest {
 	@Test
 	public void shouldCreateABookCollectible() {
 		CreateCollectibleRequestModel model = new CreateCollectibleRequestModel();
-		CollectibleBookEntity book = new CollectibleBookEntity("Hunt for Red October", "Book written by Tom Clancy I reckon", 450);
-		model.setCollectible(book);
+		CollectibleBookRequest book = new CollectibleBookRequest("Hunt for Red October", "Book written by Tom Clancy I reckon", 450);
+		model.setCollectibleRequest(book);
+		
 		createCollectibleInteractor.createCollectible(model);
+		
 		ArgumentCaptor<CreateCollectibleResponseModel> argument = ArgumentCaptor.forClass(CreateCollectibleResponseModel.class);
 		verify(outputBoundaryMock, times(1)).handleCreateCollectibleResult(argument.capture());
 		assertNotNull(argument.getValue().getEntity());
@@ -58,9 +62,11 @@ public class CreateCollectibleInteractorTest {
 	@Test
 	public void shouldCreateADVDCollectible() {
 		CreateCollectibleRequestModel model = new CreateCollectibleRequestModel();
-		CollectibleDVDEntity dvd = new CollectibleDVDEntity("Hunt for Red October", "Movie version of the Hunt for Red October", 150);
-		model.setCollectible(dvd);
+		CollectibleDVDRequest dvd = new CollectibleDVDRequest("Hunt for Red October", "Movie version of the Hunt for Red October", 150);
+		model.setCollectibleRequest(dvd);
+		
 		createCollectibleInteractor.createCollectible(model);
+		
 		ArgumentCaptor<CreateCollectibleResponseModel> argument = ArgumentCaptor.forClass(CreateCollectibleResponseModel.class);
 		verify(outputBoundaryMock, times(1)).handleCreateCollectibleResult(argument.capture());
 		assertNotNull(argument.getValue().getEntity());
@@ -71,7 +77,7 @@ public class CreateCollectibleInteractorTest {
 	@Test
 	public void shouldNotCreateUnknownCollectibles() {
 		CreateCollectibleRequestModel model = new CreateCollectibleRequestModel();
-		model.setCollectible(null);
+		model.setCollectibleRequest(null);
 		createCollectibleInteractor.createCollectible(model);
 		verify(databaseMock, times(0)).storeCollectible(any(CollectibleEntity.class));
 	}

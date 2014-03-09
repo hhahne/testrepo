@@ -6,15 +6,18 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.henrik.service.createcollectible.boundary.CreateCollectibleInputBoundary;
-import com.henrik.service.createcollectible.entity.CollectibleBookEntity;
-import com.henrik.service.createcollectible.entity.CollectibleDVDEntity;
+import com.henrik.service.createcollectible.boundary.CreateCollectibleOutputBoundary;
 import com.henrik.service.createcollectible.entity.CollectibleEntity;
 import com.henrik.service.createcollectible.entity.CollectibleType;
+import com.henrik.service.createcollectible.model.CollectibleBookRequest;
+import com.henrik.service.createcollectible.model.CollectibleDVDRequest;
+import com.henrik.service.createcollectible.model.CollectibleRequest;
 import com.henrik.service.createcollectible.model.CreateCollectibleRequestModel;
+import com.henrik.service.createcollectible.model.CreateCollectibleResponseModel;
 
 @Component("DvdBean")
 @Scope("request")
-public class DvdBackingBean{
+public class DvdBackingBean {
 	
 	@Autowired
 	private DvdModel dvdModel; 
@@ -29,21 +32,20 @@ public class DvdBackingBean{
 
 	public String addEntityToModel() {
 		CreateCollectibleRequestModel requestModel = new CreateCollectibleRequestModel();
-		requestModel.setCollectible(createCollectibleFromDvdModel());
+		requestModel.setCollectibleRequest(createCollectibleFromDvdModel());
 		interactor.createCollectible(requestModel);
 		return "createdCollectible.xhtml";
 	}
 
-	private CollectibleEntity createCollectibleFromDvdModel() {
-		CollectibleEntity entity = null;
+	private CollectibleRequest createCollectibleFromDvdModel() {
+		CollectibleRequest request = null;
 		if(CollectibleType.BOOK.getCode().equals(dvdModel.getCollectibleType())) {
-			entity = new CollectibleBookEntity(dvdModel.getName(), dvdModel.getDescription());
+			request = new CollectibleBookRequest(dvdModel.getName(), dvdModel.getDescription(), 0);
 		} else if(CollectibleType.DVD.getCode().equals(dvdModel.getCollectibleType())) {
-			entity = new CollectibleDVDEntity(dvdModel.getName(), dvdModel.getDescription());
+			request = new CollectibleDVDRequest(dvdModel.getName(), dvdModel.getDescription(), 0);
 		}
-		return entity;
+		return request;
 	}
 
-	
 	
 }

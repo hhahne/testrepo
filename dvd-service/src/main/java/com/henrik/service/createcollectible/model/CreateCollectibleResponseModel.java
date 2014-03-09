@@ -1,4 +1,4 @@
-package com.henrik.service.createcollectible.model;
+ package com.henrik.service.createcollectible.model;
 
 import com.henrik.service.createcollectible.entity.CollectibleEntity;
 

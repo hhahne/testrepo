@@ -18,6 +18,9 @@ import com.henrik.service.createcollectible.entity.CollectibleBookEntity;
 import com.henrik.service.createcollectible.entity.CollectibleDVDEntity;
 import com.henrik.service.createcollectible.entity.CollectibleEntity;
 import com.henrik.service.createcollectible.gateway.CreateCollectibleInMemoryDatabaseGateway;
+import com.henrik.service.createcollectible.model.CollectibleBookRequest;
+import com.henrik.service.createcollectible.model.CollectibleDVDRequest;
+import com.henrik.service.createcollectible.model.CollectibleRequest;
 import com.henrik.service.createcollectible.model.CreateCollectibleRequestModel;
 
 /**
@@ -46,7 +49,7 @@ public class CreateCollectibleInteractorComponentTest {
 	
 	@Test
 	public void shouldCreateDVDCollectible() {
-		CreateCollectibleRequestModel dvdModel = createRequestModel(createDVDEntity());
+		CreateCollectibleRequestModel dvdModel = createRequestModel(createDVDRequest());
 		interactor.createCollectible(dvdModel);
 		
 		assertNotNull(database.getAllCollectibles());
@@ -58,7 +61,7 @@ public class CreateCollectibleInteractorComponentTest {
 	
 	@Test
 	public void shouldCreateBookCollectible() {
-		CreateCollectibleRequestModel bookModel = createRequestModel(createBookEntity());
+		CreateCollectibleRequestModel bookModel = createRequestModel(createBookRequest());
 		interactor.createCollectible(bookModel);
 		
 		assertNotNull(database.getAllCollectibles());
@@ -71,8 +74,8 @@ public class CreateCollectibleInteractorComponentTest {
 	
 	@Test
 	public void shouldNotCreateDuplicateEntities() {
-		CreateCollectibleRequestModel dvdModel = createRequestModel(createDVDEntity());
-		CreateCollectibleRequestModel dvdDuplicate = createRequestModel(createDVDEntity());
+		CreateCollectibleRequestModel dvdModel = createRequestModel(createDVDRequest());
+		CreateCollectibleRequestModel dvdDuplicate = createRequestModel(createDVDRequest());
 		interactor.createCollectible(dvdModel);
 		interactor.createCollectible(dvdDuplicate);
 		Collection<CollectibleEntity> returnedEntities = database.getAllCollectibles();
@@ -87,18 +90,18 @@ public class CreateCollectibleInteractorComponentTest {
 	}
 
 	
-	private CreateCollectibleRequestModel createRequestModel(CollectibleEntity entity) {
+	private CreateCollectibleRequestModel createRequestModel(CollectibleRequest request) {
 		CreateCollectibleRequestModel dvdModel = new CreateCollectibleRequestModel();
-		dvdModel.setCollectible(entity);
+		dvdModel.setCollectibleRequest(request);
 		return dvdModel;
 	}
 
-	private CollectibleDVDEntity createDVDEntity() {
-		return new CollectibleDVDEntity("Test", "Test description", 130);
+	private CollectibleDVDRequest createDVDRequest() {
+		return new CollectibleDVDRequest("Test", "Test description", 130);
 	}
 	
-	private CollectibleBookEntity createBookEntity() {
-		return new CollectibleBookEntity("TestBook", "Test description", 300);
+	private CollectibleBookRequest createBookRequest() {
+		return new CollectibleBookRequest("TestBook", "Test description", 300);
 	}
  
 }

@@ -1,23 +1,18 @@
 package com.henrik.service.createcollectible.model;
 
-import com.henrik.service.createcollectible.entity.CollectibleEntity;
 
 public class CreateCollectibleRequestModel {
-	private String type;
-	private CollectibleEntity collectible;
+	private CollectibleRequest collectibleRequest;
+
+	public CollectibleRequest getCollectibleRequest() {
+		return collectibleRequest;
+	}
+
+	public void setCollectibleRequest(CollectibleRequest collectibleRequest) {
+		this.collectibleRequest = collectibleRequest;
+	}
 	
-
-	public String getType() {
-		return type;
-	}
-
-	public void setCollectible(CollectibleEntity collectible) {
-		this.collectible = collectible;
-	}
-
-	public CollectibleEntity getCollectible() {
-		return collectible;
-	}
+	
 	
 	
 	

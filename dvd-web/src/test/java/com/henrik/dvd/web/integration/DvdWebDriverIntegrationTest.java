@@ -2,6 +2,8 @@ package com.henrik.dvd.web.integration;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +20,7 @@ public class DvdWebDriverIntegrationTest {
 	public void setUp() 
 	{
 //		System.setProperty("webdriver.chrome.driver", "/Users/henrikhahne/Public/chromedriver");
-		driver = new HtmlUnitDriver();
+		driver = new HtmlUnitDriver(true);
 	}
 	
 	@Test
