@@ -1,15 +1,12 @@
 package com.henrik.dvd.web;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
+import com.henrik.service.createcollectible.entity.CollectibleEntity;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-import com.henrik.service.createcollectible.entity.CollectibleEntity;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Component("DvdModel")

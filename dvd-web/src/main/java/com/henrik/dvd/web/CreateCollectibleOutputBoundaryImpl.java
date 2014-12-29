@@ -1,14 +1,12 @@
 package com.henrik.dvd.web;
 
-import javax.faces.context.FacesContext;
-
-import org.springframework.context.annotation.Scope;
+import com.henrik.service.createcollectible.boundary.CreateCollectibleOutputBoundary;
+import com.henrik.service.createcollectible.model.CreateCollectibleResponseModel;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.jsf.FacesContextUtils;
 
-import com.henrik.service.createcollectible.boundary.CreateCollectibleOutputBoundary;
-import com.henrik.service.createcollectible.model.CreateCollectibleResponseModel;
+import javax.faces.context.FacesContext;
 
 /**
  * This class will be called as a "callback" from the service layer BEFORE the main method in the web controller returns. Its job is to process

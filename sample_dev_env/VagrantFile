@@ -1,6 +1,6 @@
-Vagrant::Config.run do |config|
+Vagrant.configure("2") do |config|
 config.vm.box = "ubuntu"
-config.vm.forward_port 8080, 3000
-config.vm.boot_mode = :gui
+config.vm.network "forwarded_port", guest:8080, host:3000
+config.vm.network :private_network, ip: "192.168.0.4"
 config.vm.provision :puppet
 end
