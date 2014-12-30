@@ -1,5 +1,5 @@
 **/target
 *.idea/
 *sample_dev_env/.vagrant/
-**.iml
+*.iml
 */*.iml
